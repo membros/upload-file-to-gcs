@@ -17,7 +17,7 @@ app.post(
   
       const imageBuffer = Buffer.from(base64Image, "base64");
   
-      const url = `${file.storage.apiEndpoint}/bucket-membros/${file.name}`;
+      const url = `${file.storage.apiEndpoint}/bucketName/${file.name}`;
   
       file
         .save(imageBuffer, {
@@ -28,7 +28,7 @@ app.post(
           return res.json(url.replace(/ /g, "%20"));
         })
         .catch((error) => {
-          return res.status(500).send("Não foi possível fazer upload da imagem.");
+          return res.status(500).send("Image upload fail.");
         });
     }
   );
